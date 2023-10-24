@@ -1,23 +1,13 @@
-# Multiple MongoDB Connection in Single Application
+# Multiple MongoDB Connection in Single Application: Switching Databases within the Same Connection
 
 Explore the implementation of multiple MongoDB connections in a Node.js application for robust and scalable database management.
 
-We explore different scenarios and examples to help you choose the setup that best aligns with your specific data access and management needs:
-
-**1. Using the Existing Schema**: You can choose to use the same schema that was employed in the primary connection. This is suitable for scenarios where both connections will operate on the same data model. 
-
-**2. Setting Schema Flexibility**: If you prefer to have schema flexibility, you can pass the `strict: false` property in the options when configuring your schema for the secondary connection. This allows you to work with data that doesn't adhere strictly to the schema.
-
-**3. Switching Databases within the Same Connection**:  
+Within your application's database setup, you can seamlessly switch between different databases using the `db.useDb()` method. This method enables you to create a new connection object associated with a specific database, all while sharing the same connection pool.
 
 ### 1. Clone the repo and move it to the project directory
 
 ### 2. Move to the Specific Directory:
 ```
-cd "1. Using the Existing Schema"
-// or
-cd "2. Setting Schema Flexibility"
-// or 
 cd "3. Switching Databases within the Same Connection"
 ```
 
@@ -55,4 +45,23 @@ npm install
 ### 6. Run:
 ```
 node index.js
+```
+
+### 7. Output in Console: 
+```
+Listening on port 3000...
+MongoDB primary connection succeeded!
+MongoDB primary connection opened!
+MongoDB secondary connection succeeded!
+MongoDB secondary connection opened!
+{
+  store: { _id: new ObjectId("5f71ab6f9b32d94b0c4ef850"), name: 'Store A' },
+  _id: new ObjectId("6537adc45b4f0d3e8a0983a0"),
+  name: 'Product 1'
+}
+{
+  store: { _id: new ObjectId("5f71ab6f9b32d94b0c4ef850"), name: 'Store A' },
+  _id: new ObjectId("6537adc45b4f0d3e8a0983a0"),
+  name: 'Product 1'
+}
 ```
