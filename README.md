@@ -8,7 +8,7 @@ We explore different scenarios and examples to help you choose the setup that be
 
 **2. Setting Schema Flexibility**: If you prefer to have schema flexibility, you can pass the `strict: false` property in the options when configuring your schema for the secondary connection. This allows you to work with data that doesn't adhere strictly to the schema.
 
-**3. Switching Databases within the Same Connection**:  
+**3. Switching Databases within the Same Connection**: Within your application's database setup, you can seamlessly switch between different databases using the `db.useDb()` method. This method enables you to create a new connection object associated with a specific database, all while sharing the same connection pool.
 
 ### 1. Clone the repo and move it to the project directory
 
